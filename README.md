@@ -25,5 +25,6 @@ cd vite-demo && pnpm run dev
 
 ## 参考
 - [rust wasm book](https://rustwasm.github.io/docs/book/)
+- [wasm-bindgen examples](https://rustwasm.github.io/wasm-bindgen/examples/hello-world.html)
 - [wasm-pack book](https://rustwasm.github.io/docs/wasm-pack/)
 - [wasm-pack](https://rustwasm.github.io/wasm-pack/)

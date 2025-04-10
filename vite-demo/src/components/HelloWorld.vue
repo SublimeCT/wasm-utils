@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import init, { greet } from 'wasm-utils'
+import init, { encrypt } from 'wasm-utils'
 
 async function test() {
   await init()
-  greet()
+  // greet('Ryan')
+  console.log('before encrypt')
+  const message = encrypt('test')
+  console.log('after encrypt', message)
 }
 
 test()

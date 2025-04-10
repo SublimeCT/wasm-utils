@@ -5,6 +5,7 @@ import wasm from 'vite-plugin-wasm'
 // https://vite.dev/config/
 export default defineConfig({
   server: { port: 53311 },
+  preview: { port: 53131 },
   plugins: [vue(), wasm()],
   optimizeDeps: {
     exclude: [
