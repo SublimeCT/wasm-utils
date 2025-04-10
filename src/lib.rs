@@ -11,22 +11,22 @@ extern "C" {
 
 #[wasm_bindgen]
 pub fn greet(name: &str) {
-    let message = &format!("Hello, {}!", name);
+    let message = &format!("{}{}", s!("Hello, "), name);
     alert(&message);
 }
 
 fn check() {
     let is_user = is_real_user();
     if !is_user {
-        console::error_1(&"You are not real user".into());
+        console::error_1(&s!("You are not real user").into());
     }
 }
 
 fn is_real_user() -> bool {
-    let window = window().expect("should have a Window");
-    let document = window.document().expect("should have a Document");
+    let window = window().expect(s!("should have a Window"));
+    let document = window.document().expect(s!("should have a Document"));
 
-    let app_element = document.query_selector("#app").unwrap();
+    let app_element = document.query_selector(s!("#app")).unwrap();
     if let Some(_) = app_element {
         true
     } else {
@@ -38,7 +38,7 @@ fn is_real_user() -> bool {
 pub fn encrypt(text: &str) -> String {
     check();
     // let key = "KKKKKKKK1234567890";
-    let message = format!("[wasm-utils] encrypt() 原文: {} / 模拟秘钥: {}", text, s!("KKKKKKKK1234567890"));
+    let message = format!("{}{}{}{}{}{}", s!("[wasm-utils] "), s!("encrypt() "), s!("原文: "), text, s!(" / 模拟秘钥: "), s!("KKKKKKKK1234567890"));
     console::log_1(&JsValue::from(&message));
     message
 }
@@ -46,7 +46,7 @@ pub fn encrypt(text: &str) -> String {
 #[wasm_bindgen]
 pub fn decrypt(text: &str) -> String {
     check();
-    let message = format!("[wasm-utils] decrypt: {}", text);
+    let message = format!("{}{}", s!("[wasm-utils] decrypt: "), text);
     console::log_1(&JsValue::from(&message));
     message
 }
